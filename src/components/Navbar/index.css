@@ -1,0 +1,6 @@
+.custom-sticky-top {
+  top: 0;
+  opacity: 1;
+  z-index: 99;
+  position: sticky;
+}

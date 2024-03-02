@@ -1,0 +1,29 @@
+.custom-style {
+  height: 100%;
+  padding-top: 46px;
+  padding-bottom: 180.8px;
+}
+
+.custom-div {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+
+.custom-text {
+  font-weight: 500;
+  font-style: normal;
+  font-family: cursive;
+}
+
+.cutom-position {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0 !important;
+}
+
+.custom-text-position {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
