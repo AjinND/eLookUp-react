@@ -5,7 +5,7 @@ import { faCircleInfo, faMagnifyingGlass, faUserPlus } from "@fortawesome/free-s
 
 function CarouselComponent() {
   return (
-    <Carousel data-bs-theme="dark" style={{ height: "28rem" }} interval={400000}>
+    <Carousel data-bs-theme="dark" style={{ height: "28rem" }} interval={4000}>
       <Carousel.Item style={{ height: "28rem" }}>
         <img className="d-block w-100" src='/search_background.png' alt="First slide" style={{objectFit: 'fit', height: '100%'}} />
         <Carousel.Caption>
