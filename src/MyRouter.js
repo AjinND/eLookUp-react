@@ -6,6 +6,7 @@ import SignUp from "./components/Signup";
 import Login from "./components/Login";
 import Account from "./components/Account";
 import LookUp from "./components/LookUp";
+import BookAppointment from "./components/BookAppointment";
 
 const MyRouter = createBrowserRouter([
   {
@@ -35,6 +36,12 @@ const MyRouter = createBrowserRouter([
       {
         path: "/search",
         element: <LookUp />,
+        children: [
+          {
+            path: "/search/book-appointment",
+            element: <BookAppointment />
+          }
+        ],
       },
     ],
   },

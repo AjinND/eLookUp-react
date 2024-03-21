@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import "./index.css";
 
 const states = [
   "Maharastra",
@@ -24,8 +27,11 @@ const cities = {
 const LookUp = () => {
   const [state, setState] = useState("");
   const [districts, setDistricts] = useState([]);
-  const [city, setCity] = useState('');
-  const [job, setJob] = useState('');
+  const [city, setCity] = useState("");
+  const [job, setJob] = useState("");
+  const [res, setRes] = useState([]);
+  const [toggles, setToggles] = useState();
+
   const handleStateChange = ({ target }) => {
     setState(target.value);
   };
@@ -43,9 +49,24 @@ const LookUp = () => {
     setDistricts(cities[state]);
   }, [state]);
 
-  const submitSearch =() => {
-    console.log(state,city, job)
-  }
+  const submitSearch = () => {
+    console.log(state, city, job);
+    setRes([
+      {
+        imageUri: "test/url",
+        description: "descriptoin",
+      },
+      {
+        imageUri: "test/url",
+        description: "descriptoin",
+      },
+      {
+        imageUri: "test/url",
+        description: "descriptoin",
+      },
+    ]);
+    setToggles(Array(res.length).fill(false));
+  };
 
   return (
     <div className="container">
@@ -77,8 +98,8 @@ const LookUp = () => {
           <Form.Select style={{ width: "14rem" }} onChange={handleJobChange}>
             <option>Default select</option>
             {jobs.map((job, index) => (
-                <option key={index}> {job}</option>
-              ))}
+              <option key={index}> {job}</option>
+            ))}
           </Form.Select>
         </div>
       </div>
@@ -95,6 +116,58 @@ const LookUp = () => {
           Search
         </Button>
       </div>
+      {res.length > 0 &&
+        res.map((result, index) => (
+          <div key={index}>
+            <Card>
+              <Card.Body className="d-flex justify-content-between">
+                <div className="d-flex">
+                  <div>{result.imageUri}</div>
+                  <div>{result.description}</div>
+                </div>
+
+                <div>
+                  <button
+                    className="btn btn-link"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      const newToggles = [...toggles]; // Create a copy of the toggles array
+                      newToggles[index] = !toggles[index]; // Toggle the state for the clicked card
+                      setToggles(newToggles);
+                    }}
+                  >
+                    Book
+                  </button>
+                </div>
+              </Card.Body>
+              <div>
+                {toggles[index] && 
+                <>
+                  <div>This is some text within a card body.</div>
+                  <div>
+                    <input type="date" />
+                    <input type="time" />
+                    <input type="textbox" placeholder="address" />
+                  </div>
+                  <div>
+                    <Button
+                      variant="primary"
+                      type="submit"
+                      className="mb-3 d-flex justify-content-center"
+                      style={{
+                        backgroundImage: "linear-gradient(to right, #4be1ec, #cb5eee)",
+                      }}
+                    >
+                      Confirm Booking
+                    </Button>
+                  </div>
+                  </>
+                }
+              </div>
+            </Card>
+          </div>
+        ))}
+      <Outlet />
     </div>
   );
 };
