@@ -38,7 +38,7 @@ const MyRouter = createBrowserRouter([
         element: <LookUp />,
         children: [
           {
-            path: "/search/book-appointment",
+            path: "/search/confirm-booking",
             element: <BookAppointment />
           }
         ],

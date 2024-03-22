@@ -1,4 +1,27 @@
-/* .test > div:last-child{
-    float:left;
-    position:absolute
-} */
+.custom-style {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-top: 2.5rem;
+}
+.image {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 2.5rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1.5rem;
+    font-size: 20px;
+    padding-right: 1.5rem;
+}
+
+.book{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

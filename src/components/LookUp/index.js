@@ -69,10 +69,10 @@ const LookUp = () => {
   };
 
   return (
-    <div className="container">
-      <div className="d-flex">
-        <div className="d-flex align-items-center">
-          <label style={{ color: "white" }}>Choose Your State</label>
+    <div className="container custom-style">
+      <div className="d-flex" style={{ padding: '1rem' }}>
+        <div className="d-flex align-items-center"  style={{paddingInline: '1rem'}}>
+          <label style={{paddingInline: '1rem'}}>State</label>
           <Form.Select style={{ width: "14rem" }} onChange={handleStateChange}>
             <option key="defaul-value">Default select</option>
             {states.map((state, index) => (
@@ -82,8 +82,8 @@ const LookUp = () => {
         </div>
 
         {districts && (
-          <div className="d-flex align-items-center">
-            <label style={{ color: "white" }}>Choose Your City</label>
+          <div className="d-flex align-items-center"  style={{paddingInline: '1rem'}}>
+            <label style={{paddingInline: '1rem'}}>City</label>
             <Form.Select style={{ width: "14rem" }} onChange={handleCityChange}>
               <option>Default select</option>
               {districts.map((district, index) => (
@@ -93,8 +93,8 @@ const LookUp = () => {
           </div>
         )}
 
-        <div className="d-flex align-items-center">
-          <label style={{ color: "white" }}>Choose Employement</label>
+        <div className="d-flex align-items-center"  style={{paddingInline: '1rem'}}>
+          <label style={{paddingInline: '1rem'}}>Employement</label>
           <Form.Select style={{ width: "14rem" }} onChange={handleJobChange}>
             <option>Default select</option>
             {jobs.map((job, index) => (
@@ -103,7 +103,7 @@ const LookUp = () => {
           </Form.Select>
         </div>
       </div>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center" style={{marginTop: '2rem', marginBottom: '2rem'}}>
         <Button
           variant="primary"
           type="submit"
@@ -118,15 +118,21 @@ const LookUp = () => {
       </div>
       {res.length > 0 &&
         res.map((result, index) => (
-          <div key={index}>
+          <div key={index} style={{paddingBottom: '2rem'}}>
             <Card>
               <Card.Body className="d-flex justify-content-between">
                 <div className="d-flex">
-                  <div>{result.imageUri}</div>
-                  <div>{result.description}</div>
+                  <div>
+                    <img 
+                      src='https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png'
+                      alt="userLogo"
+                      className="image"
+                    />
+                  </div>
+                  <div className="content">{result.description}</div>
                 </div>
 
-                <div>
+                <div className="book">
                   <button
                     className="btn btn-link"
                     onClick={(event) => {
@@ -141,28 +147,31 @@ const LookUp = () => {
                 </div>
               </Card.Body>
               <div>
-                {toggles[index] && 
-                <>
-                  <div>This is some text within a card body.</div>
-                  <div>
-                    <input type="date" />
-                    <input type="time" />
-                    <input type="textbox" placeholder="address" />
-                  </div>
-                  <div>
-                    <Button
-                      variant="primary"
-                      type="submit"
-                      className="mb-3 d-flex justify-content-center"
-                      style={{
-                        backgroundImage: "linear-gradient(to right, #4be1ec, #cb5eee)",
-                      }}
-                    >
-                      Confirm Booking
-                    </Button>
-                  </div>
+                {toggles[index] && (
+                  <>
+                    <div>This is some text within a card body.</div>
+                    <div>
+                      <input type="date" />
+                      <input type="time" />
+                      <input type="textbox" placeholder="address" />
+                    </div>
+                    <div>
+                      <Button
+                        variant="primary"
+                        // type="submit"
+                        href="search/confirm-booking"
+                        className="mb-3 d-flex justify-content-center"
+                        style={{
+                          width: "fit-content",
+                          backgroundImage:
+                            "linear-gradient(to right, #4be1ec, #cb5eee)",
+                        }}
+                      >
+                        Confirm Booking
+                      </Button>
+                    </div>
                   </>
-                }
+                )}
               </div>
             </Card>
           </div>

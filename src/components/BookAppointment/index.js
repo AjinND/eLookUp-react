@@ -1,31 +1,21 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 
 const BookAppointment = () => {
   // console.log("Inside Book appoitment");
   return (
     <Card>
       <Card.Body>
-        <div>This is some text within a card body.</div>
-        <div>This is some text within a card body.</div>
-        <div>This is some text within a card body.</div>
+        <h2>Booking Confirmed</h2>
+
         <div>
-          <input type="date" />
-          <input type="time" />
-          <input type="textbox" placeholder="address" />
+          <p>Visit Scheduled on: 21/03/2024, 3:30 p.m</p>
+          <p>Job Type: Plumber</p>
+          <p>Reach out to the technician on: +91 0345765274</p>
+          <p>Technician Charge: Rs.500 (Pay on visit)</p>
         </div>
         <div>
-          <Button
-            variant="primary"
-            type="submit"
-            className="mb-3 d-flex justify-content-center"
-            style={{
-              backgroundImage: "linear-gradient(to right, #4be1ec, #cb5eee)",
-            }}
-          >
-            Submit
-          </Button>
+          <h4>Thanks For Booking</h4>
         </div>
       </Card.Body>
     </Card>
